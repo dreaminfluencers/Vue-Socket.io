@@ -1,15 +1,19 @@
 {
-  "name": "vue-socket.io",
-  "author": "Metin Seylan <metinsyln@gmail.com>",
-  "version": "3.0.10",
+  "name": "@dreaminfluencers/vue-socket.io",
+  "author": "DreamInfluencers",
+  "version": "3.1.0",
   "description": "socket.io implementation for Vue.js and Vuex",
   "main": "dist/vue-socketio.js",
   "scripts": {
     "build": "webpack --mode=production --progress --hide-modules"
   },
+  "homepage": "https://github.com/dreaminfluencers/Vue-Socket.io",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MetinSeylan/Vue-Socket.io.git"
+    "url": "git://github.com/dreaminfluencers/Vue-Socket.io.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "keywords": [
     "vuejs",
@@ -25,11 +29,10 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MetinSeylan/Vue-Socket.io/issues"
+    "url": "https://github.com/dreaminfluencers/Vue-Socket.io/issues"
   },
-  "homepage": "https://github.com/MetinSeylan/Vue-Socket.io",
   "dependencies": {
-    "socket.io-client": "^2.1.1"
+    "socket.io-client": "^4.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
