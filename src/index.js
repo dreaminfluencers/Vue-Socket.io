@@ -51,25 +51,27 @@ export default class VueSocketIO {
      * @param options
      */
     connect(connection, options){
+        let socket; // Declare socket here to reference it in multiple places
 
         if(connection && typeof connection === 'object'){
-
             Logger.info('Received socket.io-client instance');
-
-            return connection;
+            socket = connection;
 
         } else if(typeof connection === 'string'){
-
             Logger.info('Received connection string');
-
-            return this.io = SocketIO(connection, options);
+            socket = SocketIO(connection, options);
 
         } else {
-
             throw new Error('Unsupported connection type');
-
         }
 
+        // Register the connect_error listener on the socket instance
+        socket.on("connect_error", () => {
+            // revert to classic upgrade
+            socket.io.opts.transports = ["polling", "websocket"];
+        });
+
+        return socket; // Return the socket (either passed or newly created)
     }
 
 }
